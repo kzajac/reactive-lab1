@@ -79,13 +79,13 @@ object tutorial {
   }                                               //> sumFactory: (f: Int => Int)(Int, Int) => Int
 
   // the equivalent syntax is:
-  // def sum2(f: Int => Int)(Int, Int): Int
+  // def sumFactory(f: Int => Int)(Int, Int): Int
 
   // we can now write:
   def sumInts2 = sumFactory(x => x)               //> sumInts2: => (Int, Int) => Int
   def sumSquares2 = sumFactory(x => x * x)        //> sumSquares2: => (Int, Int) => Int
 
-  // or use sum2 directly:
+  // or use sumFactory directly:
   sumFactory(x => x)(1, 4)                        //> res4: Int = 10
   sumFactory(x => x * x)(1, 4)                    //> res5: Int = 30
 
