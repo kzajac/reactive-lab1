@@ -71,23 +71,23 @@ object tutorial {
   ////////////////////////////////////
 
   // Function "sum" can also *return* a new "specialized" function:
-  def sum2(f: Int => Int): (Int, Int) => Int = {
+  def sumFactory(f: Int => Int): (Int, Int) => Int = {
     def sumF(a: Int, b: Int): Int =
       if (a > b) 0
       else f(a) + sumF(a + 1, b)
     sumF // returned value is function sumF
-  }                                               //> sum2: (f: Int => Int)(Int, Int) => Int
+  }                                               //> sumFactory: (f: Int => Int)(Int, Int) => Int
 
   // the equivalent syntax is:
   // def sum2(f: Int => Int)(Int, Int): Int
 
   // we can now write:
-  def sumInts2 = sum2(x => x)                     //> sumInts2: => (Int, Int) => Int
-  def sumSquares2 = sum2(x => x * x)              //> sumSquares2: => (Int, Int) => Int
+  def sumInts2 = sumFactory(x => x)               //> sumInts2: => (Int, Int) => Int
+  def sumSquares2 = sumFactory(x => x * x)        //> sumSquares2: => (Int, Int) => Int
 
   // or use sum2 directly:
-  sum2(x => x)(1, 4)                              //> res4: Int = 10
-  sum2(x => x * x)(1, 4)                          //> res5: Int = 30
+  sumFactory(x => x)(1, 4)                        //> res4: Int = 10
+  sumFactory(x => x * x)(1, 4)                    //> res5: Int = 30
 
   // We could even further generalize this example by writing a function that computes not only sum:
   def mapReduce(mapF: Int => Int, reduceF: (Int, Int) => Int, zero: Int)(a: Int, b: Int): Int =

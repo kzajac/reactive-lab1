@@ -25,7 +25,7 @@ object tutorial2 {
     // adds two Rational numbers and returns a new Rational which represents the sum
     def add(that: Rational) =
       new Rational(
-        this.numer * that.denom + that.denom * this.denom,
+        this.numer * that.denom + that.numer * this.denom,
         this.denom * that.denom)
 
     override def toString = numer + "/" + denom
@@ -38,7 +38,7 @@ object tutorial2 {
   // "r1.add(r2)" is equivalent to "r1 add r2"
   // in fact method "add" could be named "+" because it is a valid identifier!
   // -> please make this modification
-  r1 add r2                                       //> res1: tutorial2.Rational = 12/4
+  r1 add r2                                       //> res1: tutorial2.Rational = 11/4
 
   ////////////////////////////////////
   // 2. Abstract classes and traits //
@@ -72,7 +72,7 @@ object tutorial2 {
   }
 
   val s1 = new NonEmpty(1)                        //> s1  : tutorial2.NonEmpty = 1
-  val s2 = s1 incl 2                              //> s2  : tutorial2.NonEmpty = 1,2
-  val s3 = s2 incl 1                              //> s3  : tutorial2.NonEmpty = 1,2
+  val s2 = s1 incl 2                              //> s2  : tutorial2.IntSet = 1,2
+  val s3 = s2 incl 1                              //> s3  : tutorial2.IntSet = 1,2
 
 }
