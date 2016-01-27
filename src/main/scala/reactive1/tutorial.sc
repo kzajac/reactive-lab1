@@ -54,7 +54,7 @@ object tutorial {
   /////////////////////////////
 
   // Exercise 1: write a function that computes SUM(f(x)) where
-  //             x are all between a and b: a <= x <= b
+  //             x are all integers between a and b: a <= x <= b
   def sum(a: Int, b: Int, f: Int => Int): Int = ???
                                                   //> sum: (a: Int, b: Int, f: Int => Int)Int
 
