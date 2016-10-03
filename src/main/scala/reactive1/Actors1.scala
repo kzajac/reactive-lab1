@@ -93,7 +93,7 @@ class CounterMain extends Actor {
     case count: Int =>
       println(s"count received: $count" )
       println(Thread.currentThread.getName + ".")
-      context.system.shutdown
+      context.system.terminate
   }
 }
 
@@ -104,5 +104,5 @@ object ApplicationMain extends App {
 
   mainActor ! "init"
 
-  system.awaitTermination()
+  Await.result(system.whenTerminated, 1.second)
 }
